@@ -18,4 +18,4 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-\SunChaser\com\wpreadme2markdown\App::run();
+\SunChaser\com\wpreadme2markdown\App::run(__DIR__);

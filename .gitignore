@@ -1,3 +1,9 @@
+# intellij idea
 *.iml
 *.ipr
+
+#composer libraries
 /vendor/
+
+#counters should be private to the instance
+counters.html

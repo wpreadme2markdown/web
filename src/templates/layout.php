@@ -54,5 +54,7 @@
 
         <script src="/vendor/frameworks/jquery/jquery.min.js"></script>
         <script src="/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <?= $this->counters() ?>
     </body>
 </html>

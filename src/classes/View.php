@@ -18,4 +18,14 @@ class View extends \Slim\View
 
         return parent::render('layout.php', $data);
     }
+
+    protected function counters()
+    {
+        $file = App::$path . '/counters.html';
+        if (file_exists($file)) {
+            return file_get_contents($file);
+        }
+
+        return '';
+    }
 }

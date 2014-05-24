@@ -39,11 +39,16 @@
             <p>
                 Copyright &copy; 2014 <a href="https://sunchaser.info/">Christian Archer</a>
                 <br>
+                Heavily based on <a href="https://github.com/benbalter/WP-Readme-to-Github-Markdown">WP-Readme-to-Github-Markdown</a> by <a href="http://ben.balter.com/">Ben Balter</a>
+                <br>
                 This web application is a subject to <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU AGPL v3.0</a>
             </p>
             <p>
                 <a href="/">Home</a> &bull;
-                About &bull; License Info &bull; GitHub &bull; BitBucket
+                About &bull; License Info &bull;
+                <a href="https://github.com/sunchaserinfo/wpreadme2markdown.com/issues">Issue Tracker</a> &bull;
+                <a href="https://github.com/sunchaserinfo/wpreadme2markdown.com">GitHub</a> &bull;
+                <a href="https://bitbucket.org/sunchaser/wpreadme2markdown.com">BitBucket</a>
             </p>
         </footer>
 

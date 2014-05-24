@@ -7,7 +7,7 @@
 ?>
 
 <form action="/" method="post" enctype="multipart/form-data">
-    <h4>Input or upload your Readme.txt</h4>
+    <h4>Input or upload your WordPress Plugin Readme.txt</h4>
 
     <div class="form-group">
         <label for="readme-text">Readme content</label>

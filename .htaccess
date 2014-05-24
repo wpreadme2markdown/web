@@ -1,0 +1,6 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !\.css$
+RewriteCond %{REQUEST_FILENAME} !\.js$
+RewriteCond %{REQUEST_FILENAME} !\.png$
+RewriteRule ^.*$ index.php

@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "f552a91c4bef37048c3258b55e89b456",
+    "hash": "3b166059a164f550e2e03d45ff27223e",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -119,12 +120,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunchaserinfo/wp2md.git",
-                "reference": "60ab4507925f9178aa2f7ee82d852ae2041d0eaf"
+                "reference": "f08140c04eb1d92cbe78332d2228181b2f78d05c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunchaserinfo/wp2md/zipball/60ab4507925f9178aa2f7ee82d852ae2041d0eaf",
-                "reference": "60ab4507925f9178aa2f7ee82d852ae2041d0eaf",
+                "url": "https://api.github.com/repos/sunchaserinfo/wp2md/zipball/f08140c04eb1d92cbe78332d2228181b2f78d05c",
+                "reference": "f08140c04eb1d92cbe78332d2228181b2f78d05c",
                 "shasum": ""
             },
             "require": {
@@ -160,7 +161,7 @@
                 "readme",
                 "wordpress"
             ],
-            "time": "2014-05-25 16:02:49"
+            "time": "2014-05-25 16:17:46"
         },
         {
             "name": "symfony/console",

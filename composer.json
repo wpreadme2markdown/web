@@ -1,6 +1,7 @@
 {
     "name": "sunchaser/wpreadme2markdown",
     "description": "WP2MD demo site",
+    "type": "project",
     "require": {
         "erusev/parsedown": "~1.0.1",
         "frameworks/jquery": "~1.10.0",

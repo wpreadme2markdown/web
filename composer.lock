@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "e5c74d17a903e45c283586c8f0475d46",
+    "hash": "f552a91c4bef37048c3258b55e89b456",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -115,16 +115,16 @@
         },
         {
             "name": "sunchaser/wp2md",
-            "version": "1.1.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunchaserinfo/wp2md.git",
-                "reference": "a17cd99fb4947412f2371d7706404f8c6161d030"
+                "reference": "936876ec1bf50f28d0f82932b05e6880b2942d29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunchaserinfo/wp2md/zipball/a17cd99fb4947412f2371d7706404f8c6161d030",
-                "reference": "a17cd99fb4947412f2371d7706404f8c6161d030",
+                "url": "https://api.github.com/repos/sunchaserinfo/wp2md/zipball/936876ec1bf50f28d0f82932b05e6880b2942d29",
+                "reference": "936876ec1bf50f28d0f82932b05e6880b2942d29",
                 "shasum": ""
             },
             "require": {
@@ -160,7 +160,7 @@
                 "readme",
                 "wordpress"
             ],
-            "time": "2014-05-18 16:23:39"
+            "time": "2014-05-18 17:00:00"
         },
         {
             "name": "symfony/console",
@@ -267,9 +267,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "sunchaser/wp2md": 20
+    },
     "platform": {
         "php": ">= 5.5.0"
     },

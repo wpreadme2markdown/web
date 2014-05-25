@@ -16,6 +16,20 @@ class Controller
         App::$slim->render('index');
     }
 
+    public function about()
+    {
+        App::$slim->render('about');
+    }
+
+    public function wp2md()
+    {
+        $wp2md_readme = file_get_contents(App::$path . '/vendor/sunchaser/wp2md/README.md');
+
+        App::$slim->render('wp2md', [
+            'readme' => \Parsedown::instance()->text($wp2md_readme),
+        ]);
+    }
+
     public function convert()
     {
         $readme = App::$slim->request->params('readme-text');

@@ -24,7 +24,7 @@ class App
         self::$slim = $slim = new Slim([
             'templates.path' => $path . '/src/templates',
             'view' => View::class,
-            'debug' => false,
+            //'debug' => false,
         ]);
 
         $slim->add(new SessionCookie(array(
@@ -49,6 +49,14 @@ class App
 
         $slim->post('/download', function () {
             (new Controller)->download();
+        });
+
+        $slim->get('/about', function () {
+            (new Controller)->about();
+        });
+
+        $slim->get('/wp2md', function () {
+            (new Controller)->wp2md();
         });
 
         $slim->run();

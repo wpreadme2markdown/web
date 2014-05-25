@@ -47,6 +47,10 @@ class App
             (new Controller)->convert();
         });
 
+        $slim->post('/download', function () {
+            (new Controller)->download();
+        });
+
         $slim->run();
     }
 }

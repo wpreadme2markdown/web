@@ -46,4 +46,17 @@ class Controller
             'markdown_html' => $markdown_html,
         ]);
     }
+
+    public function download()
+    {
+        $markdown = App::$slim->request->post('markdown');
+
+        header('Content-Type: application/octet-stream');
+        header('Content-Transfer-Encoding: Binary');
+        header('Content-disposition: attachment; filename="README.md"');
+
+        echo $markdown;
+
+        exit;
+    }
 }

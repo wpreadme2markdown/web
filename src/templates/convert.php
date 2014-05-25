@@ -22,8 +22,10 @@
                 <label for="markdown">&nbsp;</label>
                 <textarea id="markdown" name="markdown" class="form-control" rows="20" readonly><?= htmlentities($markdown) ?></textarea>
             </div>
-            <input type="submit" value="Download" class="btn btn-primary">
-            <a href="/" class="btn btn-default">Back</a>
+            <div class="pull-right">
+                <input type="submit" value="Download" class="btn btn-primary">
+                <a href="/" class="btn btn-default">Back</a>
+            </div>
         </form>
     </div>
     <div class="tab-pane" id="preview"><?= $markdown_html ?></div>

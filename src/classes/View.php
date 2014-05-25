@@ -12,11 +12,11 @@ class View extends \Slim\View
 {
     protected function render($template, $data = [])
     {
-        $template .= '.php';
+        $template .= '.phtml';
 
         $data['content'] = parent::render($template, $data);
 
-        return parent::render('layout.php', $data);
+        return parent::render('layout.phtml', $data);
     }
 
     protected function counters()

@@ -4,8 +4,7 @@
 
 A web service for converting [WordPress Plugin Readme.txt](http://wordpress.org/plugins/about/) file to GitHub Markdown
 
-Based on [WP2MD](https://github.com/sunchaserinfo/wp2md) tool,
-a fork of [WP-Readme-to-Github-Markdown](https://github.com/benbalter/WP-Readme-to-Github-Markdown)
+Based on [WP Readme to Markdown](https://github.com/benbalter/WP-Readme-to-Github-Markdown)
 
 # Licenses
 
@@ -26,7 +25,7 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-## WP-Readme-to-Github-Markdown
+## WP Readme to Markdown
 
 Copyright (c) 2014 Ben Balter
 

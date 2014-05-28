@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3b166059a164f550e2e03d45ff27223e",
+    "hash": "23e4c5b9500daa59d19ffd6c17a934f5",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -115,55 +115,6 @@
             "time": "2014-04-05 18:33:59"
         },
         {
-            "name": "sunchaser/wp2md",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunchaserinfo/wp2md.git",
-                "reference": "f08140c04eb1d92cbe78332d2228181b2f78d05c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunchaserinfo/wp2md/zipball/f08140c04eb1d92cbe78332d2228181b2f78d05c",
-                "reference": "f08140c04eb1d92cbe78332d2228181b2f78d05c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">= 5.3.3",
-                "symfony/console": "~2.4"
-            },
-            "bin": [
-                "bin/wp2md"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "SunChaser\\WP2MD\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christian Archer",
-                    "email": "chrstnarchr@aol.com"
-                },
-                {
-                    "name": "Benjamin J. Balter"
-                }
-            ],
-            "description": "Convert WordPress Plugin readme.txt to Markdown",
-            "keywords": [
-                "converter",
-                "markdown",
-                "readme",
-                "wordpress"
-            ],
-            "time": "2014-05-25 16:17:46"
-        },
-        {
             "name": "symfony/console",
             "version": "v2.4.5",
             "target-dir": "Symfony/Component/Console",
@@ -259,6 +210,55 @@
                 "css"
             ],
             "time": "2014-02-13 17:24:59"
+        },
+        {
+            "name": "wpreadme2markdown/wpreadme2markdown",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/benbalter/WP-Readme-to-Github-Markdown.git",
+                "reference": "dceae108111232949affc9107c98276c6fa6c98f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/benbalter/WP-Readme-to-Github-Markdown/zipball/dceae108111232949affc9107c98276c6fa6c98f",
+                "reference": "dceae108111232949affc9107c98276c6fa6c98f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 5.3.3",
+                "symfony/console": "~2.4"
+            },
+            "bin": [
+                "bin/wp2md"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WPReadme2Markdown\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Archer",
+                    "email": "chrstnarchr@aol.com"
+                },
+                {
+                    "name": "Benjamin J. Balter"
+                }
+            ],
+            "description": "Convert WordPress Plugin readme.txt to Markdown",
+            "keywords": [
+                "converter",
+                "markdown",
+                "readme",
+                "wordpress"
+            ],
+            "time": "2014-05-28 21:28:31"
         }
     ],
     "packages-dev": [
@@ -269,7 +269,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "sunchaser/wp2md": 20
+        "wpreadme2markdown/wpreadme2markdown": 20
     },
     "platform": {
         "php": ">= 5.5.0"

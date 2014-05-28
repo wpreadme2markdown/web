@@ -7,7 +7,7 @@
 
 namespace SunChaser\com\wpreadme2markdown;
 
-use SunChaser\WP2MD\Converter;
+use WPReadme2Markdown\Converter;
 
 class Controller
 {
@@ -23,7 +23,7 @@ class Controller
 
     public function wp2md()
     {
-        $wp2md_readme = file_get_contents(App::$path . '/vendor/sunchaser/wp2md/README.md');
+        $wp2md_readme = file_get_contents(App::$path . '/vendor/wpreadme2markdown/wpreadme2markdown/README.md');
 
         App::$slim->render('wp2md', [
             'readme' => \Parsedown::instance()->text($wp2md_readme),

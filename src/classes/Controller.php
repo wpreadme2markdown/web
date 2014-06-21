@@ -42,7 +42,7 @@ class Controller
         }
 
         if (empty($readme)) {
-            App::$slim->flash('error', 'Either Readme content or Readme file must be set');
+            App::$slim->flashNow('error', 'Either Readme content or Readme file must be set');
             $this->index();
             return;
         }

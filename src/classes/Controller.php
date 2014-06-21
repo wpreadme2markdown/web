@@ -18,7 +18,9 @@ class Controller
 
     public function about()
     {
-        App::$slim->render('about');
+        App::$slim->render('about', [
+            'title' => 'Description',
+        ]);
     }
 
     public function wp2md()
@@ -27,6 +29,7 @@ class Controller
 
         App::$slim->render('wp2md', [
             'readme' => \Parsedown::instance()->text($wp2md_readme),
+            'title'  => 'WP2MD CLI'
         ]);
     }
 

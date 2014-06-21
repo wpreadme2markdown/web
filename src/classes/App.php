@@ -24,7 +24,7 @@ class App
         self::$slim = $slim = new Slim([
             'templates.path' => $path . '/src/templates',
             'view' => View::class,
-            //'debug' => false,
+            'debug' => false,
         ]);
 
         $slim->add(new SessionCookie(array(

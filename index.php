@@ -16,6 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+date_default_timezone_set('UTC');
+
 require __DIR__ . '/vendor/autoload.php';
 
 \SunChaser\com\wpreadme2markdown\App::run(__DIR__);

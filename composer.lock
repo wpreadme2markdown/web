@@ -70,16 +70,16 @@
         },
         {
             "name": "slim/slim",
-            "version": "2.4.3",
+            "version": "2.6.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/codeguy/Slim.git",
-                "reference": "4906b77a07c7bd6ff1a99aea903e940a2d4fa106"
+                "url": "https://github.com/slimphp/Slim.git",
+                "reference": "20a02782f76830b67ae56a5c08eb1f563c351a37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeguy/Slim/zipball/4906b77a07c7bd6ff1a99aea903e940a2d4fa106",
-                "reference": "4906b77a07c7bd6ff1a99aea903e940a2d4fa106",
+                "url": "https://api.github.com/repos/slimphp/Slim/zipball/20a02782f76830b67ae56a5c08eb1f563c351a37",
+                "reference": "20a02782f76830b67ae56a5c08eb1f563c351a37",
                 "shasum": ""
             },
             "require": {
@@ -112,42 +112,44 @@
                 "rest",
                 "router"
             ],
-            "time": "2014-04-05 18:33:59"
+            "time": "2015-03-08 18:41:17"
         },
         {
             "name": "symfony/console",
-            "version": "v2.5.0",
-            "target-dir": "Symfony/Component/Console",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "ef4ca73b0b3a10cbac653d3ca482d0cdd4502b2c"
+                "reference": "d6cf02fe73634c96677e428f840704bfbcaec29e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/ef4ca73b0b3a10cbac653d3ca482d0cdd4502b2c",
-                "reference": "ef4ca73b0b3a10cbac653d3ca482d0cdd4502b2c",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/d6cf02fe73634c96677e428f840704bfbcaec29e",
+                "reference": "d6cf02fe73634c96677e428f840704bfbcaec29e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=5.3.9"
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/event-dispatcher": "~2.1"
+                "symfony/event-dispatcher": "~2.1",
+                "symfony/phpunit-bridge": "~2.7",
+                "symfony/process": "~2.1"
             },
             "suggest": {
                 "psr/log": "For using the console logger",
-                "symfony/event-dispatcher": ""
+                "symfony/event-dispatcher": "",
+                "symfony/process": ""
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
+                "psr-4": {
                     "Symfony\\Component\\Console\\": ""
                 }
             },
@@ -158,18 +160,16 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "email": "fabien@symfony.com"
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony Console Component",
-            "homepage": "http://symfony.com",
-            "time": "2014-05-22 08:54:24"
+            "homepage": "https://symfony.com",
+            "time": "2015-07-28 15:18:12"
         },
         {
             "name": "twbs/bootstrap",
@@ -219,12 +219,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/benbalter/WP-Readme-to-Github-Markdown.git",
-                "reference": "5a689e2864fbde9cbca58619346bb28a586e6654"
+                "reference": "5f085ed7ba16e3397ed57b5d81a3d526472f0b1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/benbalter/WP-Readme-to-Github-Markdown/zipball/5a689e2864fbde9cbca58619346bb28a586e6654",
-                "reference": "5a689e2864fbde9cbca58619346bb28a586e6654",
+                "url": "https://api.github.com/repos/benbalter/WP-Readme-to-Github-Markdown/zipball/5f085ed7ba16e3397ed57b5d81a3d526472f0b1d",
+                "reference": "5f085ed7ba16e3397ed57b5d81a3d526472f0b1d",
                 "shasum": ""
             },
             "require": {
@@ -263,23 +263,19 @@
                 "readme",
                 "wordpress"
             ],
-            "time": "2014-06-01 22:44:24"
+            "time": "2015-02-23 18:17:16"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "packages-dev": [],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "wpreadme2markdown/wpreadme2markdown": 20
     },
+    "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": ">= 5.5.0"
     },
-    "platform-dev": [
-
-    ]
+    "platform-dev": []
 }

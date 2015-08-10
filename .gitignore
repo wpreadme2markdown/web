@@ -1,6 +1,7 @@
 # intellij idea
 *.iml
 *.ipr
+/.idea
 
 #composer libraries
 /vendor/

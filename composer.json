@@ -3,7 +3,7 @@
     "description": "WP2MD demo site",
     "type": "project",
     "require": {
-        "erusev/parsedown": "~1.0.1",
+        "erusev/parsedown": "~1.5.4",
         "frameworks/jquery": "~1.10.0",
         "slim/slim": "~2.4",
         "twbs/bootstrap": "~3.1.0",

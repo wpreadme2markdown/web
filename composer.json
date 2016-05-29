@@ -22,7 +22,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "WPReadme2Markdown\\Converter\\": "src/classes"
+            "WPReadme2Markdown\\Web\\": "src/classes"
         }
     },
     "config": {

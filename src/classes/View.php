@@ -6,7 +6,7 @@
  * @license AGPL-3.0
  */
 
-namespace SunChaser\com\wpreadme2markdown;
+namespace WPReadme2Markdown\Web;
 
 class View extends \Slim\View
 {

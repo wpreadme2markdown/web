@@ -3,12 +3,15 @@
     "description": "WP2MD demo site",
     "type": "project",
     "require": {
-        "erusev/parsedown": "~1.0.1",
-        "frameworks/jquery": "~1.10.0",
+        "erusev/parsedown": "~1.0",
+        "frameworks/jquery": "~2.1",
         "slim/slim": "~2.4",
-        "twbs/bootstrap": "~3.1.0",
+        "twbs/bootstrap": "~3.3",
         "wpreadme2markdown/wpreadme2markdown": "dev-master",
         "php": ">= 5.5.0"
+    },
+    "require-dev": {
+        "sllh/composer-versions-check": "^2.0"
     },
     "license": "AGPL-3.0",
     "authors": [
@@ -19,7 +22,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "SunChaser\\com\\wpreadme2markdown\\": "src/classes"
+            "WPReadme2Markdown\\Converter\\": "src/classes"
         }
     },
     "config": {

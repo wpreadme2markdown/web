@@ -20,4 +20,4 @@ date_default_timezone_set('UTC');
 
 require __DIR__ . '/vendor/autoload.php';
 
-\SunChaser\com\wpreadme2markdown\App::run(__DIR__);
+\WPReadme2Markdown\Web\App::run(__DIR__);

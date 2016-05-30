@@ -290,13 +290,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/benbalter/WP-Readme-to-Github-Markdown.git",
-                "reference": "11816e2c7652807fd3fe35b6a4f0c6355c7638b3"
+                "url": "https://github.com/wpreadme2markdown/wp-readme-to-markdown.git",
+                "reference": "a55dd67952a606fff752eca61df5a3bf14c86651"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/benbalter/WP-Readme-to-Github-Markdown/zipball/11816e2c7652807fd3fe35b6a4f0c6355c7638b3",
-                "reference": "11816e2c7652807fd3fe35b6a4f0c6355c7638b3",
+                "url": "https://api.github.com/repos/wpreadme2markdown/wp-readme-to-markdown/zipball/a55dd67952a606fff752eca61df5a3bf14c86651",
+                "reference": "a55dd67952a606fff752eca61df5a3bf14c86651",
                 "shasum": ""
             },
             "require": {
@@ -335,7 +335,7 @@
                 "readme",
                 "wordpress"
             ],
-            "time": "2016-05-21 15:07:40"
+            "time": "2016-05-29 16:36:03"
         }
     ],
     "packages-dev": [

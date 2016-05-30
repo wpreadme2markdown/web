@@ -87,8 +87,8 @@ class Controller
         $response = $this->response->
             withHeader('Content-Type', 'application/octet-stream')->
             withHeader('Content-Transfer-Encoding', 'binary')->
-            withHeader('Content-disposition', 'attachment; filename="README.md"')->
-            getBody()->write($markdown);
+            withHeader('Content-disposition', 'attachment; filename="README.md"');
+        $response->getBody()->write($markdown);
 
         return $response;
     }

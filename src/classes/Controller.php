@@ -29,12 +29,12 @@ class Controller
 
     public function index()
     {
-        $this->render('index');
+        return $this->render('index');
     }
 
     public function about()
     {
-        $this->render('about', [
+        return $this->render('about', [
             'title' => 'Description',
         ]);
     }
@@ -43,7 +43,7 @@ class Controller
     {
         $wp2md_readme = file_get_contents(App::$path . '/vendor/wpreadme2markdown/wpreadme2markdown/README.md');
 
-        $this->render('wp2md', [
+        return $this->render('wp2md', [
             'readme' => \Parsedown::instance()->text($wp2md_readme),
             'title'  => 'WP2MD CLI'
         ]);
@@ -74,7 +74,7 @@ class Controller
         // also render demo
         $markdown_html = \Parsedown::instance()->text($markdown);
 
-        $this->render('convert', [
+        return $this->render('convert', [
             'markdown' => $markdown,
             'markdown_html' => $markdown_html,
         ]);
@@ -88,13 +88,13 @@ class Controller
             withHeader('Content-Type', 'application/octet-stream')->
             withHeader('Content-Transfer-Encoding', 'binary')->
             withHeader('Content-disposition', 'attachment; filename="README.md"')->
-            withBody($markdown);
+            getBody()->write($markdown);
 
         return $response;
     }
 
     private function render($template, $args = [])
     {
-        $this->container->view->render($this->response, $template, $args);
+        return $this->container->view->render($this->response, $template, $args);
     }
 }

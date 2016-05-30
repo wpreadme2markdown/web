@@ -12,7 +12,7 @@ use Slim\Views\PhpRenderer;
 
 class View extends PhpRenderer
 {
-    public function fetch($response, $template, $data = [])
+    public function fetch($template, $data = [])
     {
         $template .= '.phtml';
 

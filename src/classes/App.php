@@ -29,23 +29,23 @@ class App
         };
 
         $slim->get('/', function(...$args) {
-            (new Controller($this, ...$args))->index();
+            return (new Controller($this, ...$args))->index();
         });
 
         $slim->post('/', function(...$args) {
-            (new Controller($this, ...$args))->convert();
+            return (new Controller($this, ...$args))->convert();
         });
 
         $slim->post('/download', function (...$args) {
-            (new Controller($this, ...$args))->download();
+            return (new Controller($this, ...$args))->download();
         });
 
         $slim->get('/about', function (...$args) {
-            (new Controller($this, ...$args))->about();
+            return (new Controller($this, ...$args))->about();
         });
 
         $slim->get('/wp2md', function (...$args) {
-            (new Controller($this, ...$args))->wp2md();
+            return (new Controller($this, ...$args))->wp2md();
         });
 
         $slim->run();

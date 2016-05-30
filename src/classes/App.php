@@ -7,7 +7,7 @@
 
 namespace WPReadme2Markdown\Web;
 
-use Slim\App as Slim;
+use Slim\App as SlimApp;
 
 class App
 {
@@ -20,11 +20,7 @@ class App
     public static function run($path)
     {
         self::$path = $path;
-        self::$slim = $slim = new Slim([
-            'templates.path' => $path . '/src/templates',
-            'view' => View::class,
-            'debug' => false,
-        ]);
+        self::$slim = $slim = new SlimApp();
 
         $container = $slim->getContainer();
 
@@ -33,23 +29,23 @@ class App
         };
 
         $slim->get('/', function(...$args) {
-            (new Controller(...$args))->index();
+            (new Controller($this, ...$args))->index();
         });
 
         $slim->post('/', function(...$args) {
-            (new Controller(...$args))->convert();
+            (new Controller($this, ...$args))->convert();
         });
 
         $slim->post('/download', function (...$args) {
-            (new Controller(...$args))->download();
+            (new Controller($this, ...$args))->download();
         });
 
         $slim->get('/about', function (...$args) {
-            (new Controller(...$args))->about();
+            (new Controller($this, ...$args))->about();
         });
 
         $slim->get('/wp2md', function (...$args) {
-            (new Controller(...$args))->wp2md();
+            (new Controller($this, ...$args))->wp2md();
         });
 
         $slim->run();

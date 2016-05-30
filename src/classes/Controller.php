@@ -7,6 +7,7 @@
 
 namespace WPReadme2Markdown\Web;
 
+use Interop\Container\ContainerInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use WPReadme2Markdown\Converter;
@@ -16,12 +17,14 @@ class Controller
     private $request;
     private $response;
     private $arguments;
+    private $container;
 
-    public function __construct(Request $req,  Response $res, $args = [])
+    public function __construct(ContainerInterface $container, Request $request, Response $response, $arguments = [])
     {
-        $this->request      = $req;
-        $this->response     = $res;
-        $this->arguments    = $args;
+        $this->request      = $request;
+        $this->response     = $response;
+        $this->arguments    = $arguments;
+        $this->container    = $container;
     }
 
     public function index()
@@ -92,6 +95,6 @@ class Controller
 
     private function render($template, $args = [])
     {
-        App::$slim->view->render($this->response, $template, $args);
+        $this->container->view->render($this->response, $template, $args);
     }
 }

@@ -57,11 +57,10 @@ class Controller
             $readme = file_get_contents($_FILES['readme-file']['tmp_name']);
         }
 
-//        if (empty($readme)) {
-//            App::$slim->flashNow('error', 'Either Readme content or Readme file must be set');
-//            $this->index();
-//            return;
-//        }
+        if (empty($readme)) {
+            $this->flashNow('error', 'Either Readme content or Readme file must be set');
+            return $this->index();
+        }
 
         $slug = $this->request->getParam('plugin-slug');
 
@@ -91,6 +90,11 @@ class Controller
         $response->getBody()->write($markdown);
 
         return $response;
+    }
+
+    private function flashNow($key, $string)
+    {
+        $this->container->view->flashNow($key, $string);
     }
 
     private function render($template, $args = [])

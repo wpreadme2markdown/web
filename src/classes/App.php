@@ -7,13 +7,12 @@
 
 namespace WPReadme2Markdown\Web;
 
-use Slim\Middleware\SessionCookie;
-use Slim\Slim;
+use Slim\App as Slim;
 
 class App
 {
     /**
-     * @var \Slim\Slim
+     * @var \Slim\App
      */
     public static $slim;
     public static $path;
@@ -27,36 +26,30 @@ class App
             'debug' => false,
         ]);
 
-        $slim->add(new SessionCookie(array(
-            'expires' => '20 minutes',
-            'path' => '/',
-            'domain' => null,
-            'secure' => false,
-            'httponly' => false,
-            'name' => 'slim_session',
-            'secret' => sha1(__FILE__ . php_uname()),
-            'cipher' => MCRYPT_RIJNDAEL_256,
-            'cipher_mode' => MCRYPT_MODE_CBC
-        )));
+        $container = $slim->getContainer();
 
-        $slim->get('/', function() {
-            (new Controller)->index();
+        $container['view'] = function () use ($path) {
+            return new View($path . '/src/templates/');
+        };
+
+        $slim->get('/', function(...$args) {
+            (new Controller(...$args))->index();
         });
 
-        $slim->post('/', function() {
-            (new Controller)->convert();
+        $slim->post('/', function(...$args) {
+            (new Controller(...$args))->convert();
         });
 
-        $slim->post('/download', function () {
-            (new Controller)->download();
+        $slim->post('/download', function (...$args) {
+            (new Controller(...$args))->download();
         });
 
-        $slim->get('/about', function () {
-            (new Controller)->about();
+        $slim->get('/about', function (...$args) {
+            (new Controller(...$args))->about();
         });
 
-        $slim->get('/wp2md', function () {
-            (new Controller)->wp2md();
+        $slim->get('/wp2md', function (...$args) {
+            (new Controller(...$args))->wp2md();
         });
 
         $slim->run();

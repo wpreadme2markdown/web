@@ -7,18 +7,31 @@
 
 namespace WPReadme2Markdown\Web;
 
+use Slim\Http\Request;
+use Slim\Http\Response;
 use WPReadme2Markdown\Converter;
 
 class Controller
 {
+    private $request;
+    private $response;
+    private $arguments;
+
+    public function __construct(Request $req,  Response $res, $args = [])
+    {
+        $this->request      = $req;
+        $this->response     = $res;
+        $this->arguments    = $args;
+    }
+
     public function index()
     {
-        App::$slim->render('index');
+        $this->render('index');
     }
 
     public function about()
     {
-        App::$slim->render('about', [
+        $this->render('about', [
             'title' => 'Description',
         ]);
     }
@@ -27,7 +40,7 @@ class Controller
     {
         $wp2md_readme = file_get_contents(App::$path . '/vendor/wpreadme2markdown/wpreadme2markdown/README.md');
 
-        App::$slim->render('wp2md', [
+        $this->render('wp2md', [
             'readme' => \Parsedown::instance()->text($wp2md_readme),
             'title'  => 'WP2MD CLI'
         ]);
@@ -35,19 +48,19 @@ class Controller
 
     public function convert()
     {
-        $readme = App::$slim->request->params('readme-text');
+        $readme = $this->request->getParam('readme-text');
 
         if (isset($_FILES['readme-file']) && $_FILES['readme-file']['error'] === UPLOAD_ERR_OK) {
             $readme = file_get_contents($_FILES['readme-file']['tmp_name']);
         }
 
-        if (empty($readme)) {
-            App::$slim->flashNow('error', 'Either Readme content or Readme file must be set');
-            $this->index();
-            return;
-        }
+//        if (empty($readme)) {
+//            App::$slim->flashNow('error', 'Either Readme content or Readme file must be set');
+//            $this->index();
+//            return;
+//        }
 
-        $slug = App::$slim->request->params('plugin-slug');
+        $slug = $this->request->getParam('plugin-slug');
 
         if (empty(trim($slug))) {
             $slug = null;
@@ -58,7 +71,7 @@ class Controller
         // also render demo
         $markdown_html = \Parsedown::instance()->text($markdown);
 
-        App::$slim->render('convert', [
+        $this->render('convert', [
             'markdown' => $markdown,
             'markdown_html' => $markdown_html,
         ]);
@@ -66,14 +79,19 @@ class Controller
 
     public function download()
     {
-        $markdown = App::$slim->request->post('markdown');
+        $markdown = $this->request->getParsedBodyParam('markdown');
 
-        header('Content-Type: application/octet-stream');
-        header('Content-Transfer-Encoding: Binary');
-        header('Content-disposition: attachment; filename="README.md"');
+        $response = $this->response->
+            withHeader('Content-Type', 'application/octet-stream')->
+            withHeader('Content-Transfer-Encoding', 'binary')->
+            withHeader('Content-disposition', 'attachment; filename="README.md"')->
+            withBody($markdown);
 
-        echo $markdown;
+        return $response;
+    }
 
-        exit;
+    private function render($template, $args = [])
+    {
+        App::$slim->view->render($this->response, $template, $args);
     }
 }

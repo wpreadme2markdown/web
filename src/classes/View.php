@@ -8,15 +8,17 @@
 
 namespace WPReadme2Markdown\Web;
 
-class View extends \Slim\View
+use Slim\Views\PhpRenderer;
+
+class View extends PhpRenderer
 {
-    protected function render($template, $data = [])
+    public function fetch($response, $template, $data = [])
     {
         $template .= '.phtml';
 
-        $data['content'] = parent::render($template, $data);
+        $data['content'] = parent::fetch($template, $data);
 
-        return parent::render('layout.phtml', $data);
+        return parent::fetch('layout.phtml', $data);
     }
 
     protected function counters()

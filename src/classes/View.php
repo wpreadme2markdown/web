@@ -13,13 +13,13 @@ use Slim\Views\PhpRenderer;
 class View extends PhpRenderer
 {
     private $flash = [];
-    
+
     public function flashNow($key, $string)
     {
         $this->flash[$key] = $string;
     }
-    
-    public function fetch($template, $data = [])
+
+    public function fetch($template, array $data = [])
     {
         $template .= '.phtml';
 

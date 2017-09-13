@@ -1,0 +1,11 @@
+version: '2'
+services:
+  web:
+    container_name: wp2md-web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/html

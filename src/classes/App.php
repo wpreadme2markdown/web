@@ -28,25 +28,13 @@ class App
             return new View($path . '/src/templates/');
         };
 
-        $slim->get('/', function(...$args) {
-            return (new Controller($this, ...$args))->index();
-        });
+        $controller = Controller::class;
 
-        $slim->post('/', function(...$args) {
-            return (new Controller($this, ...$args))->convert();
-        });
-
-        $slim->post('/download', function (...$args) {
-            return (new Controller($this, ...$args))->download();
-        });
-
-        $slim->get('/about', function (...$args) {
-            return (new Controller($this, ...$args))->about();
-        });
-
-        $slim->get('/wp2md', function (...$args) {
-            return (new Controller($this, ...$args))->wp2md();
-        });
+        $slim->get( '/',            "{$controller}:index");
+        $slim->post('/',            "{$controller}:convert");
+        $slim->post('/download',    "{$controller}:download");
+        $slim->get( '/about',       "{$controller}:about");
+        $slim->get( '/wp2md',       "{$controller}:wp2md");
 
         $slim->run();
     }

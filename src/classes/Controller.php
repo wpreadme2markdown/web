@@ -8,61 +8,59 @@
 namespace WPReadme2Markdown\Web;
 
 use Interop\Container\ContainerInterface;
+use Psr\Http\Message\UploadedFileInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use WPReadme2Markdown\Converter;
 
 class Controller
 {
-    private $request;
-    private $response;
-    private $arguments;
     private $container;
 
-    public function __construct(ContainerInterface $container, Request $request, Response $response, $arguments = [])
+    public function __construct(ContainerInterface $container)
     {
-        $this->request      = $request;
-        $this->response     = $response;
-        $this->arguments    = $arguments;
-        $this->container    = $container;
+        $this->container = $container;
     }
 
-    public function index()
+    public function index(Request $request, Response $response)
     {
-        return $this->render('index');
+        return $this->render($response, 'index');
     }
 
-    public function about()
+    public function about(Request $request, Response $response)
     {
-        return $this->render('about', [
+        return $this->render($response, 'about', [
             'title' => 'Description',
         ]);
     }
 
-    public function wp2md()
+    public function wp2md(Request $request, Response $response)
     {
         $wp2md_readme = file_get_contents(App::$path . '/vendor/wpreadme2markdown/wp2md/README.md');
 
-        return $this->render('wp2md', [
+        return $this->render($response, 'wp2md', [
             'readme' => \Parsedown::instance()->text($wp2md_readme),
             'title'  => 'WP2MD CLI'
         ]);
     }
 
-    public function convert()
+    public function convert(Request $request, Response $response)
     {
-        $readme = $this->request->getParam('readme-text');
+        $readme = $request->getParam('readme-text');
 
-        if (isset($_FILES['readme-file']) && $_FILES['readme-file']['error'] === UPLOAD_ERR_OK) {
-            $readme = file_get_contents($_FILES['readme-file']['tmp_name']);
+        /** @var UploadedFileInterface $readmeFile */
+        $readmeFile = $request->getUploadedFiles()['readme-file'];
+
+        if ($readmeFile && $readmeFile->getError() === UPLOAD_ERR_OK) {
+            $readme = $readmeFile->getStream()->getContents();
         }
 
         if (empty($readme)) {
             $this->flashNow('error', 'Either Readme content or Readme file must be set');
-            return $this->index();
+            return $this->index($request, $response);
         }
 
-        $slug = $this->request->getParam('plugin-slug');
+        $slug = $request->getParam('plugin-slug');
 
         if (empty(trim($slug))) {
             $slug = null;
@@ -73,17 +71,17 @@ class Controller
         // also render demo
         $markdown_html = \Parsedown::instance()->text($markdown);
 
-        return $this->render('convert', [
+        return $this->render($response, 'convert', [
             'markdown' => $markdown,
             'markdown_html' => $markdown_html,
         ]);
     }
 
-    public function download()
+    public function download(Request $request, Response $response)
     {
-        $markdown = $this->request->getParsedBodyParam('markdown');
+        $markdown = $request->getParsedBodyParam('markdown');
 
-        $response = $this->response->
+        $response = $response->
             withHeader('Content-Type', 'application/octet-stream')->
             withHeader('Content-Transfer-Encoding', 'binary')->
             withHeader('Content-disposition', 'attachment; filename="README.md"');
@@ -94,11 +92,11 @@ class Controller
 
     private function flashNow($key, $string)
     {
-        $this->container->view->flashNow($key, $string);
+        $this->container->get('view')->flashNow($key, $string);
     }
 
-    private function render($template, $args = [])
+    private function render(Response $response, $template, $args = [])
     {
-        return $this->container->view->render($this->response, $template, $args);
+        return $this->container->get('view')->render($response, $template, $args);
     }
 }

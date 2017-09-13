@@ -1,6 +1,6 @@
 # WP Readme to Markdown
 
-<https://wpreadme2markdown.snch.im/>
+<https://wpreadme2markdown.cf/>
 
 A web service for converting [WordPress Plugin Readme.txt](https://wordpress.org/plugins/about/)
 file to GitHub Flavored Markdown

@@ -41,7 +41,7 @@ class Controller
 
     public function wp2md()
     {
-        $wp2md_readme = file_get_contents(App::$path . '/vendor/wpreadme2markdown/wpreadme2markdown/README.md');
+        $wp2md_readme = file_get_contents(App::$path . '/vendor/wpreadme2markdown/wp2md/README.md');
 
         return $this->render('wp2md', [
             'readme' => \Parsedown::instance()->text($wp2md_readme),

@@ -1,12 +1,13 @@
 {
-    "name": "sunchaser/wpreadme2markdown",
-    "description": "WP2MD demo site",
+    "name": "wpreadme2markdown/web",
+    "description": "Convert WordPress Plugin Readme Files to GitHub Flavored Markdown Online",
     "type": "project",
     "require": {
         "erusev/parsedown": "~1.0",
         "frameworks/jquery": "~2.1",
         "slim/php-view": "~2.1",
         "slim/slim": "~3.4",
+        "symfony/filesystem": "^3.3",
         "twbs/bootstrap": "~3.3",
         "wpreadme2markdown/wp2md": "~3.0",
         "php": "^5.6|^7.0"
@@ -28,5 +29,9 @@
     },
     "config": {
         "optimize-autoloader": true
+    },
+    "scripts": {
+        "post-install-cmd": "WPReadme2Markdown\\Web\\Install\\CopyAssets::postInstall",
+        "post-update-cmd":  "WPReadme2Markdown\\Web\\Install\\CopyAssets::postInstall"
     }
 }

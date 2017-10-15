@@ -31,11 +31,12 @@ class View extends PhpRenderer
 
     protected function counters()
     {
-        $file = App::$path . '/counters.html';
-        if (file_exists($file)) {
-            return file_get_contents($file);
+        $response = '';
+
+        if (($googleAnalyticsCode = getenv('GOOGLE_ANALYTICS'))) {
+            $response .= parent::fetch('google-analytics.phtml', ['code' => $googleAnalyticsCode]);
         }
 
-        return '';
+        return $response;
     }
 }

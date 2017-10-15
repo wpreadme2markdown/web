@@ -1,0 +1,19 @@
+<?php
+/**
+ * @author Christian Archer
+ * @copyright 2014, Christian Archer
+ * @license AGPL-3.0
+ *
+ * @var string $code
+ */
+?>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?= $code ?>"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '<?= $code ?>');
+</script>

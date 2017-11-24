@@ -1,5 +1,7 @@
 # WP Readme to Markdown
 
+[![Code Climate](https://img.shields.io/codeclimate/github/wpreadme2markdown/web.svg?maxAge=2592000)](https://codeclimate.com/github/wpreadme2markdown/web)
+
 <https://wpreadme2markdown.herokuapp.com/>
 
 A web service for converting [WordPress Plugin Readme.txt](https://wordpress.org/plugins/about/)

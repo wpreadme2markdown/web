@@ -28,15 +28,4 @@ class View extends PhpRenderer
 
         return parent::fetch('layout.phtml', $data);
     }
-
-    protected function counters()
-    {
-        $response = '';
-
-        if (($googleAnalyticsCode = getenv('GOOGLE_ANALYTICS'))) {
-            $response .= parent::fetch('google-analytics.phtml', ['code' => $googleAnalyticsCode]);
-        }
-
-        return $response;
-    }
 }

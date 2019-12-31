@@ -14,24 +14,23 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>WP Readme to Markdown <?php if (isset($title)): ?> - <?= $title ?><?php endif ?></title>
+        <title><?php if (isset($title)): ?><?= $title ?> - <?php endif ?> WP Readme to Markdown</title>
         <link rel="stylesheet" href="/assets/vendor/bootstrap.min.css">
-        <link rel="stylesheet" href="/assets/vendor/bootstrap-theme.min.css">
         <link rel="stylesheet" href="/assets/app.css">
         <link rel="icon" href="/favicon.png">
     </head>
 
     <body>
         <div class="container">
+            <div class="page-header">
+                <h1>WP Readme to Markdown</h1>
+            </div>
+
             <?php if (isset($flash['error'])): ?>
                 <div class="alert alert-danger">
                     <?= $flash['error'] ?>
                 </div>
             <?php endif ?>
-
-            <div class="page-header">
-                <h1>WP Readme to Markdown</h1>
-            </div>
 
             <?= $content ?>
         </div>

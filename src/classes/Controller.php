@@ -5,46 +5,45 @@
  * @license AGPL-3.0
  */
 
+declare(strict_types=1);
+
 namespace WPReadme2Markdown\Web;
 
-use Interop\Container\ContainerInterface;
+use Parsedown;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UploadedFileInterface;
-use Slim\Http\Request;
 use Slim\Http\Response;
+use Slim\Http\ServerRequest;
+use Slim\Views\PhpRenderer;
 use WPReadme2Markdown\Converter;
 
 class Controller
 {
-    private $container;
-
-    public function __construct(ContainerInterface $container)
+    public function index(ServerRequest $request, Response $response, PhpRenderer $view): ResponseInterface
     {
-        $this->container = $container;
+        return $view->render($response, 'index.phtml', [
+            'flash' => $request->getAttribute('flash'),
+        ]);
     }
 
-    public function index(Request $request, Response $response)
+    public function about(Response $response, PhpRenderer $view): ResponseInterface
     {
-        return $this->render($response, 'index');
-    }
-
-    public function about(Request $request, Response $response)
-    {
-        return $this->render($response, 'about', [
+        return $view->render($response, 'about.phtml', [
             'title' => 'Description',
         ]);
     }
 
-    public function wp2md(Request $request, Response $response)
+    public function wp2md(Response $response, PhpRenderer $view): ResponseInterface
     {
         $wp2md_readme = file_get_contents(App::$path . '/vendor/wpreadme2markdown/wp2md/README.md');
 
-        return $this->render($response, 'wp2md', [
-            'readme' => \Parsedown::instance()->text($wp2md_readme),
+        return $view->render($response, 'wp2md.phtml', [
+            'readme' => Parsedown::instance()->text($wp2md_readme),
             'title'  => 'WP2MD CLI'
         ]);
     }
 
-    public function convert(Request $request, Response $response)
+    public function convert(ServerRequest $request, Response $response, PhpRenderer $view, Parsedown $parsedown): ResponseInterface
     {
         $readme = $request->getParam('readme-text');
 
@@ -56,8 +55,8 @@ class Controller
         }
 
         if (empty($readme)) {
-            $this->flashNow('error', 'Either Readme content or Readme file must be set');
-            return $this->index($request, $response);
+            $flash = ['error' => 'Either Readme content or Readme file must be set'];
+            return $this->index($request->withAttribute('flash', $flash), $response, $view);
         }
 
         $slug = $request->getParam('plugin-slug');
@@ -69,15 +68,15 @@ class Controller
         $markdown = Converter::convert($readme, $slug);
 
         // also render demo
-        $markdown_html = \Parsedown::instance()->text($markdown);
+        $markdown_html = $parsedown->text($markdown);
 
-        return $this->render($response, 'convert', [
+        return $view->render($response, 'convert.phtml', [
             'markdown' => $markdown,
             'markdown_html' => $markdown_html,
         ]);
     }
 
-    public function download(Request $request, Response $response)
+    public function download(ServerRequest $request, Response $response): ResponseInterface
     {
         $markdown = $request->getParsedBodyParam('markdown');
 
@@ -88,15 +87,5 @@ class Controller
         $response->getBody()->write($markdown);
 
         return $response;
-    }
-
-    private function flashNow($key, $string)
-    {
-        $this->container->get('view')->flashNow($key, $string);
-    }
-
-    private function render(Response $response, $template, $args = [])
-    {
-        return $this->container->get('view')->render($response, $template, $args);
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace WPReadme2Markdown\Web\Install;
 
 use Symfony\Component\Filesystem\Filesystem;

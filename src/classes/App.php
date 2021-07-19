@@ -10,32 +10,32 @@ declare(strict_types=1);
 namespace WPReadme2Markdown\Web;
 
 use DI\Bridge\Slim\Bridge;
-use DI\Container;
-use Parsedown;
+use DI\ContainerBuilder;
+use League\CommonMark\GithubFlavoredMarkdownConverter;
+use League\CommonMark\MarkdownConverterInterface;
 use Slim\Views\PhpRenderer;
 
 use function DI\create;
 use function DI\get;
+use function DI\value;
 
 class App
 {
-    /**
-     * @var \Slim\App
-     */
-    public static $slim;
-    public static $path;
-
-    public static function run($path)
+    public static function run(string $path)
     {
-        $container = new Container();
+        $builder = new ContainerBuilder();
+        $builder->useAutowiring(false);
+        $builder->addDefinitions([
+            'path' => value($path),
+            PhpRenderer::class => create()->constructor($path . '/src/templates/', [], 'layout.phtml'),
+            MarkdownConverterInterface::class => create(GithubFlavoredMarkdownConverter::class),
+            Controller::class => create(),
+            'controller' => get(Controller::class),
+        ]);
 
-        $container->set(PhpRenderer::class, create()->constructor($path . '/src/templates/', [], 'layout.phtml'));
-        $container->set(Parsedown::class, create());
-        $container->set(Controller::class, create());
-        $container->set('controller', get(Controller::class));
+        $container = $builder->build();
 
-        self::$path = $path;
-        self::$slim = $slim = Bridge::create($container);
+        $slim = Bridge::create($container);
 
         $slim->get( '/',            "controller::index");
         $slim->post('/',            "controller::convert");

@@ -9,7 +9,8 @@ declare(strict_types=1);
 
 namespace WPReadme2Markdown\Web;
 
-use Parsedown;
+use League\CommonMark\MarkdownConverterInterface;
+use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UploadedFileInterface;
 use Slim\Http\Response;
@@ -33,18 +34,26 @@ class Controller
         ]);
     }
 
-    public function wp2md(Response $response, PhpRenderer $view): ResponseInterface
-    {
-        $wp2md_readme = file_get_contents(App::$path . '/vendor/wpreadme2markdown/wp2md/README.md');
+    public function wp2md(
+        Response $response,
+        PhpRenderer $view,
+        ContainerInterface $container,
+        MarkdownConverterInterface $converter,
+    ): ResponseInterface {
+        $wp2md_readme = file_get_contents($container->get('path') . '/vendor/wpreadme2markdown/wp2md/README.md');
 
         return $view->render($response, 'wp2md.phtml', [
-            'readme' => Parsedown::instance()->text($wp2md_readme),
+            'readme' => $converter->convertToHtml($wp2md_readme),
             'title'  => 'WP2MD CLI'
         ]);
     }
 
-    public function convert(ServerRequest $request, Response $response, PhpRenderer $view, Parsedown $parsedown): ResponseInterface
-    {
+    public function convert(
+        ServerRequest $request,
+        Response $response,
+        PhpRenderer $view,
+        MarkdownConverterInterface $converter,
+    ): ResponseInterface {
         $readme = $request->getParam('readme-text');
 
         /** @var UploadedFileInterface $readmeFile */
@@ -68,7 +77,7 @@ class Controller
         $markdown = Converter::convert($readme, $slug);
 
         // also render demo
-        $markdown_html = $parsedown->text($markdown);
+        $markdown_html = $converter->convertToHtml($markdown);
 
         return $view->render($response, 'convert.phtml', [
             'markdown' => $markdown,

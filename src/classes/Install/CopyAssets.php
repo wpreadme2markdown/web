@@ -8,7 +8,7 @@ use Symfony\Component\Filesystem\Filesystem;
 
 abstract class CopyAssets
 {
-    private static $files = [
+    private static array $files = [
         'twbs/bootstrap/dist/css/bootstrap.min.css',
         'twbs/bootstrap/dist/css/bootstrap-theme.min.css',
         'frameworks/jquery/jquery.min.js',

@@ -16,8 +16,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+use WPReadme2Markdown\Web\App;
+
 date_default_timezone_set('UTC');
 
 require __DIR__ . '/vendor/autoload.php';
 
-\WPReadme2Markdown\Web\App::run(__DIR__);
+App::run(__DIR__);

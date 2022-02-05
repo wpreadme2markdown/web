@@ -3,16 +3,16 @@
     "description": "Convert WordPress Plugin Readme Files to GitHub Flavored Markdown Online",
     "type": "project",
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "frameworks/jquery": "~2.1",
-        "league/commonmark": "^1.6",
+        "league/commonmark": "^2.2",
         "php-di/php-di": "^6.0",
         "php-di/slim-bridge": "^3.0",
         "slim/http": "^1.0",
         "slim/php-view": "^3.0",
         "slim/psr7": "^1.1",
         "slim/slim": "^4.3",
-        "symfony/filesystem": "^5.0",
+        "symfony/filesystem": "^6",
         "twbs/bootstrap": "^3.4.1",
         "wpreadme2markdown/wp2md": "^4.0",
         "wpreadme2markdown/wpreadme2markdown": "^4.0"
@@ -31,7 +31,7 @@
     },
     "config": {
         "platform": {
-            "php": "8.0"
+            "php": "8.1"
         },
         "classmap-authoritative": true,
         "sort-packages": true

@@ -10,7 +10,6 @@ abstract class CopyAssets
 {
     private static array $files = [
         'twbs/bootstrap/dist/css/bootstrap.min.css',
-        'twbs/bootstrap/dist/css/bootstrap-theme.min.css',
         'frameworks/jquery/jquery.min.js',
         'twbs/bootstrap/dist/js/bootstrap.min.js',
     ];

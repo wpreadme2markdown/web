@@ -10,15 +10,15 @@
 ?>
 
 <ul class="nav nav-tabs">
-    <li class="active"><a href="#source" data-toggle="tab">Source</a></li>
-    <li><a href="#preview" data-toggle="tab">Preview</a></li>
+    <li class="nav-item"><button id="source-tab"  data-bs-toggle="tab" data-bs-target="#source"  class="nav-link active">Source</button></li>
+    <li class="nav-item"><button id="preview-tab" data-bs-toggle="tab" data-bs-target="#preview" class="nav-link">Preview</button></li>
 </ul>
 
 <div class="tab-content">
 
     <div class="tab-pane active" id="source">
         <form action="/download" method="post">
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="markdown">&nbsp;</label>
                 <textarea id="markdown" name="markdown" class="form-control" rows="20" readonly><?= htmlentities($markdown) ?></textarea>
             </div>

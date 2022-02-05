@@ -11,8 +11,8 @@ namespace WPReadme2Markdown\Web;
 
 use DI\Bridge\Slim\Bridge;
 use DI\ContainerBuilder;
+use League\CommonMark\ConverterInterface;
 use League\CommonMark\GithubFlavoredMarkdownConverter;
-use League\CommonMark\MarkdownConverterInterface;
 use Slim\Views\PhpRenderer;
 
 use function DI\create;
@@ -28,7 +28,7 @@ class App
         $builder->addDefinitions([
             'path' => value($path),
             PhpRenderer::class => create()->constructor($path . '/src/templates/', [], 'layout.phtml'),
-            MarkdownConverterInterface::class => create(GithubFlavoredMarkdownConverter::class),
+            ConverterInterface::class => create(GithubFlavoredMarkdownConverter::class),
             Controller::class => create(),
             'controller' => get(Controller::class),
         ]);

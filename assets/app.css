@@ -3,3 +3,7 @@
     margin-top: 50px;
     text-align: center;
 }
+
+.preview-tab img {
+    max-width: 100%;
+}

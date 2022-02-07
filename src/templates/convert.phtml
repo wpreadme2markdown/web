@@ -16,16 +16,15 @@
 
 <div class="tab-content">
 
-    <div class="tab-pane active" id="source">
+    <div class="tab-pane active border border-top-0 p-3" id="source">
         <form action="/download" method="post">
             <div class="mb-3">
-                <label for="markdown">&nbsp;</label>
                 <textarea id="markdown" name="markdown" class="form-control" rows="20" readonly><?= htmlentities($markdown) ?></textarea>
             </div>
             <input type="submit" value="Download" class="btn btn-primary">
             <a href="/" class="btn btn-default">Back</a>
         </form>
     </div>
-    <div class="tab-pane" id="preview"><?= $markdown_html ?></div>
+    <div class="tab-pane border border-top-0 p-4 preview-tab" id="preview"><?= $markdown_html ?></div>
 </div>
 

@@ -2,7 +2,7 @@
 
 [![Code Climate](https://img.shields.io/codeclimate/maintainability/wpreadme2markdown/web.svg?maxAge=2592000)](https://codeclimate.com/github/wpreadme2markdown/web)
 
-<https://wpreadme2markdown.herokuapp.com/>
+<https://wpreadme2markdown.onrender.com/> (many thanks to [render.com](https://render.com))
 
 A web service for converting [WordPress Plugin Readme.txt](https://wordpress.org/plugins/about/)
 file to GitHub Flavored Markdown

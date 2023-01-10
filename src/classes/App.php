@@ -13,6 +13,7 @@ use DI\Bridge\Slim\Bridge;
 use DI\ContainerBuilder;
 use League\CommonMark\ConverterInterface;
 use League\CommonMark\GithubFlavoredMarkdownConverter;
+use Slim\Http\Response;
 use Slim\Views\PhpRenderer;
 
 use function DI\create;
@@ -42,6 +43,10 @@ class App
         $slim->post('/download',    "controller::download");
         $slim->get( '/about',       "controller::about");
         $slim->get( '/wp2md',       "controller::wp2md");
+        $slim->get( '/ok', function (Response $response) {
+            $response->getBody()->write('OK');
+            return $response;
+        });
 
         $slim->run();
     }

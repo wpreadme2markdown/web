@@ -4,7 +4,7 @@ services:
     container_name: wp2md-web
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     ports:
       - "8000:80"
     volumes:

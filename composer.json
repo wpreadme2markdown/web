@@ -4,17 +4,17 @@
     "type": "project",
     "require": {
         "php": "^8.2",
-        "league/commonmark": "^2.2",
-        "php-di/php-di": "^6.0",
-        "php-di/slim-bridge": "^3.0",
-        "slim/http": "^1.0",
-        "slim/php-view": "^3.0",
-        "slim/psr7": "^1.1",
-        "slim/slim": "^4.3",
-        "symfony/filesystem": "^6",
-        "twbs/bootstrap": "^5.1",
-        "wpreadme2markdown/wp2md": "^4.0",
-        "wpreadme2markdown/wpreadme2markdown": "^4.0"
+        "league/commonmark": "^2.6",
+        "php-di/php-di": "^6.4",
+        "php-di/slim-bridge": "^3.4.1",
+        "slim/http": "^1.4",
+        "slim/php-view": "^3.4",
+        "slim/psr7": "^1.7",
+        "slim/slim": "^4.14",
+        "symfony/filesystem": "^6.4.13",
+        "twbs/bootstrap": "^5.3.3",
+        "wpreadme2markdown/wp2md": "^4.1.1",
+        "wpreadme2markdown/wpreadme2markdown": "^4.1"
     },
     "license": "AGPL-3.0",
     "authors": [

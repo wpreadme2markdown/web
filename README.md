@@ -1,8 +1,12 @@
 # WP Readme to Markdown
 
-[![Code Climate](https://img.shields.io/codeclimate/maintainability/wpreadme2markdown/web.svg?maxAge=2592000)](https://codeclimate.com/github/wpreadme2markdown/web)
+> The project is retired, my main reasons are:
+> * I no longer use WordPress and develop plugins for it
+> * I now agree with the idea that GitHub's readme and WordPress readme serve different purpose
+>   and should therefore be different
+> * I see an effort from WordPress to prevent some features of this tool from working (screenshot detection)
 
-<https://wpreadme2markdown.onrender.com/> (many thanks to [render.com](https://render.com))
+<s>wpreadme2markdown.onrender.com</s> (many thanks to [render.com](https://render.com))
 
 A web service for converting [WordPress Plugin Readme.txt](https://wordpress.org/plugins/about/)
 file to GitHub Flavored Markdown

@@ -16,7 +16,7 @@
         "wpreadme2markdown/wp2md": "^4.1.1",
         "wpreadme2markdown/wpreadme2markdown": "^4.1"
     },
-    "license": "AGPL-3.0",
+    "license": "MIT-0",
     "authors": [
         {
             "name": "Christian Archer",
